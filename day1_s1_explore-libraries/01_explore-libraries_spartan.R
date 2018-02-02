@@ -1,12 +1,13 @@
 #' Which libraries does R search for packages?
-
+.libPaths()
 
 #' Installed packages
 
 ## use installed.packages() to get all installed packages
+pckgs <- as.data.frame(installed.packages())
 
 ## how many packages?
-
+nrow(pckgs)
 
 #' Exploring the packages
 
@@ -14,7 +15,7 @@
 ##   * tabulate by LibPath, Priority, or both
 ##   * what proportion need compilation?
 ##   * how break down re: version of R they were built on
-
+aggregate(pckgs ~ pckgs$LibPath)
 
 #' Reflections
 
